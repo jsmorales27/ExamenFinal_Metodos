@@ -12,25 +12,38 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-x=0
-z=0
+x=1.
+z=3.
 y=2.0
 t=0
 
 listax=[]
 listay=[]
 listaz=[]
-delta=0.5
+listat=[]
+delta=0.005
 
 while t<5:
     x=x+(delta*10.0*(y-x))  #Escogo variar primero x porque depende solo de x y de y, por tanto cambiando yo ya queda
-    z=z+(delta*(xy-2.67*z)) #Escojo variar segundo z porque ya tenemos x y y
-    y=y*(delta*(28.0*x-y-xz))
+    z=z+(delta*(x*y-2.67*z)) #Escojo variar segundo z porque ya tenemos x y y
+    y=y*(delta*(28.0*x-y-x*z))
     listax.append(x)
     listay.append(y)
     listaz.append(z)
     t=t+delta
+    listat.append(t)
 
+plt.plot(listax,listay, color="red", label="Y en funcion de x")
+plt.legend()
+plt.grid()
+plt.savefig("xy.png")
+plt.clf()
+
+plt.plot(listax,listaz, color="red", label="Z en funcion de x")
+plt.legend()
+plt.grid()
+plt.savefig("xz.png")
+plt.clf()
 
 
 

@@ -7,7 +7,8 @@ x = np.int_(np.random.random(100)*1000)
 print(x)
 
 for i in range(0, len(list(x))):
-    print (x[i])
+    if (x[i]%2!=0):
+        print (x[i])
     if x[i]>800:
         break
 
